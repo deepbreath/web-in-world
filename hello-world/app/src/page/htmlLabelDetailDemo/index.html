@@ -6,7 +6,7 @@
     <title>HTML 标签图文详解</title>
 </head>
 <body>
-    <h4>主要内容</h4>
+    <h4>主要内容:使用什么标签是需要根据语义决定而不是样式</h4>
     <pre>
      列表标签:ul,ol,dl
      表格标签:table
@@ -49,13 +49,171 @@
             </li>
         </ul>
     </div>
-    <h4 style="text-align: center;color: tomato;">---有序列表 ol 和 里面的每一项 li---</h4>
+    <h4 style="text-align: center;color: tomato;">---有序列表 ol 和 里面的每一项 li 与 ul 标签一致---</h4>
     <div>
-        <ol>
+        <ol type="1">
             <li>有序的1</li>
             <li>有序的2</li>
             <li>有序的3</li>
         </ol>
     </div>
+    <div style="text-align: left;">
+        <h4 style="text-align: center;color: tomato;">---定义列表 dl---</h4>
+        <p>dl:definition list ,没有属性，dl的子元素只能是 dt 和 dd</p>
+        <p>dt:definition title,列表的标题</p>
+        <p>dd:definition description 列表item，非必选</p>
+        <p>dt dd 只能在 dl 标签中</p>
+        <dl>dl:China
+            <dt>dt:上海</dt>
+            <dd>dd:徐家汇</dd>
+            <dd>dd:港汇广场</dd>
+            <dd>dd:美罗城</dd>
+            <dd>dd:徐家汇天主教堂</dd>
+        </dl>
+        <h4 style="text-align: center;color: tomato;">---购物列表 example dl---</h4>
+        <dl>
+            <dt>购物指南</dt>
+            <dd>
+                <a href="#">购物流程</a>
+                <a href="#">会员介绍</a>
+                <a href="#">生活旅游</a>
+                <a href="#">常见问题</a>
+                <a href="#">关于我们</a>
+                <a href="#">联系客服</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>dt:配送方式</dt>
+            <dd>dd:
+                <a href="#">a:上门自提</a>
+                <a href="#">a:物流配送</a>
+                <a href="#">a:海外配送</a>
+            </dd>
+        </dl>
+    </div>
+    <h3 style="text-align: center;color: tomato;">---表格标签---</h3>
+    <p>table 标签表示一个表格</p>
+    <p>tr 标签标识一行</p>
+    <p>td 标签标单元格</p>
+    <div>
+        <table style="border-collapse:collapse!important;">
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>birth</td>
+                <td>area</td>
+            </tr>
+            <tr>
+                <td>小光</td>
+                <td>29</td>
+                <td>1997</td>
+                <td>NoBody</td>
+            </tr>
+            <tr>
+                <td>小铭</td>
+                <td>25</td>
+                <td>1999</td>
+                <td>NoBody</td>
+          
+            </tr>
+        </table>    
+    </div>
+    <h3 style="text-align: center;color: tomato;">---单元格合并---</h3>
+    <p>需要删除对应位置的一个单元格 在 td 标签中使用 rowspan 属性进行设置合并数量</p>
+    <div>
+        <table style="border-collapse:collapse!important;">
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>birth</td>
+                <td>area</td>
+            </tr>
+            <tr>
+                <td>小光</td>
+                <td>29</td>
+                <td>1997</td>
+                <td rowspan="2">NoBody</td>
+            </tr>
+            <tr>
+                <td>小铭</td>
+                <td>25</td>
+                <td>1999</td>
+            </tr>
+        </table>    
+    </div>
+    <h3 style="text-align: center;color: tomato;">---内嵌框架---</h3>
+    <a href="./frameDemo.html">内嵌框架</a>
+    <h3 style="text-align: center;color: tomato;">---表单标签---</h3>
+    <p>form:用于与服务器交互。用于提交，输入数据</p>
+    <ul>
+        <li>name:表单的名称，用于 JS 来操作控制表单</li>
+        <li>id:表单的id，用于 JS 来控制表单</li>
+        <li>action: 指定表单处理程序</li>
+        <li>method: 表单提交方式</li>
+    </ul>
+    <div name="formDiv">
+        <form>
+            name: <input type=""/><br>
+            nick name: <input type=""/><br>
+            gender:<input type="radio" name="gender" id="radio1" value="girl"/>女
+                   <input type="radio" name="gender" id="radio2" value="man"/>男<br>
+            password:<input type="password"/><br>
+            username:<input type="checkbox" name="username" value="psd1"/> psd1
+        </form>
+    </div>
+    <h3 style="text-align: center;color: tomato;">---Input 表单标签---</h3>
+    <div>
+        <form>
+            <input type="button" value="普通按钮"/><br>
+            <input type="submit" value="提交按钮"/><br>
+            <input type="reset" value="重置按钮"/><br>
+            <input type="image" src="../../../assets/background.jpeg" width="400" height="400" value="图片按钮"/><br>
+            <input type="file" value="文件选择"/><br>
+        </form>
+    </div>
+    <h3 style="text-align: center;color: tomato;">---select 表单标签---</h3>
+    <form>单选
+        <select>
+            <option selected="">1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </form>
+    <form>多选
+        <select multiple="multiple">
+            <option selected="">1</option>
+            <option selected="">2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </form>
+    <h3 style="text-align: center;color: tomato;">---textarea 多行文本输入框 表单标签---</h3>
+    <div>
+        <form>
+            <textarea name="textinfo" rows="4" cols="20">1. 
+                我也不知道自己在说什么？
+            </textarea>
+            <textarea name="textinfo" rows="4" cols="20">
+            2. 我还是不知道自己在说什么？
+            </textarea>
+            <textarea name="textinfo" rows="4" cols="20">
+                3. 不知道说什么
+            </textarea>
+            <textarea name="textinfo" rows="4" cols="20">
+                4.说什么呢？
+            </textarea>
+        </form>
+    </div>
+
 </body>
+<style>
+    table {
+      border-collapse: collapse!important;
+    }
+    td {
+      border: 1px solid black;
+      align-self: center;
+    }
+    </style>
 </html>
