@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 标签图文详解</title>
+</head>
+<body>
+    <h4>主要内容</h4>
+    <pre>
+     列表标签:ul,ol,dl
+     表格标签:table
+     表单标签:form
+     多媒体标签
+     滚动字幕标签:marquee
+    </pre>
+    <h4 style="text-align: center;color: tomato;">---无序列表 ul 和 无序列表中每一项 li---</h4>
+    <span>ul:unordered list</span><br/>
+    <span>li:list item</span>
+    <p>li 不能单独存在，必须包含在 ul 标签内部</p>
+    <p>场景: 导航栏，导航栏里的具体信息</p>
+    <p>注意: li 标签也是容器级别的</p>
+    <div>
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+        </ul>
+        <h3 style="text-align: center;color: tomato;">---无序列表 ul type---</h3>
+        <ul type="square">
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+        </ul>
+        <ul type="circle">
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+        </ul>
+        <h3 style="text-align: center;color: tomato;">---列表嵌套---</h3>
+        <ul>
+            <li>
+                <span>上海</span>
+                <ul type="square">
+                    <li>徐汇区</li>
+                    <li>黄浦区</li>
+                    <li>闵行区</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h4 style="text-align: center;color: tomato;">---有序列表 ol 和 里面的每一项 li---</h4>
+    <div>
+        <ol>
+            <li>有序的1</li>
+            <li>有序的2</li>
+            <li>有序的3</li>
+        </ol>
+    </div>
+</body>
+</html>
