@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 100%;
+            max-width: 400px;
+            min-width: 200px;
+            margin: 0 auto;
+            font-family: 'PingFang SC';
+            font-size: 20px;
+        }
+        input{
+            display: block;
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>表单事件</legend>
+            <label for="">
+                Email: <input type="email" name="" id="email">
+            </label>
+            <label for="">
+                Input Num: <input type="text" name="" id="numCalu">
+            </label>
+            <input type="submit">
+        </fieldset>
+    </form>
+    <script>
+        var email=document.getElementById("email");
+        var numCalu=document.getElementById("numCalu");
+        var number=0;
+        email.oninput=function(){
+            number++; //每次输入都会进行自增
+            numCalu.value=number;
+        }
+        email.oninvalid=function(){
+            this.setCustomValidity("请输入正确 邮箱");
+        }
+    </script>
+</body>
+</html>
