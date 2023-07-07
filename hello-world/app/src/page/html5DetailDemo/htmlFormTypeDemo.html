@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5 中新增的表单类型 样式 DEMO</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        form{
+            max-width: 500px;
+            width: 100%;
+            margin: 32px auto 0;
+            font-size: 16px;
+        }
+        label{
+            display: block;
+            margin: 10px 0;
+        }
+        input{
+            width: 100%;
+            height: 25px;
+            margin-top: 2px;
+            display: block;
+        }    
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>表单类型</legend>
+            <label for="">
+                email:<input type="email" name="email">
+            </label><br>
+            <label for="">
+                file:<input type="file" name="file">
+            </label><br>
+            <label for="">
+                color:<input type="color" name="color">
+            </label><br>
+            <label for="">
+                url:<input type="url" name="url">
+            </label><br>
+            <Label for="">
+                number:<input type="number" name="number">
+            </Label><br>
+            <Label for="">
+                decimalNumber:<input type="number" step="0.01" name="number">
+            </Label><br>
+            <label for="">
+                range:<input type="range" name="range">
+            </label><br>
+            <label for="">
+                search:<input type="search" name="search">
+            </label><br>
+            <label for="">
+                tel:<input type="tel" name="tel">
+            </label><br>
+            <label for="">
+                time:<input type="time" name="time">
+            </label><br>
+            <label for="">
+                date:<input type="date" name="date">
+            </label><br>
+            <label for="">
+                datetime:<input type="datetime" name="datetime">
+            </label><br>
+            <label for="">
+                week:<input type="week" name="week">
+            </label><br>
+            <label for="">
+                month:<input type="month" name="month">
+            </label><br>
+            <label for="">
+                datetime-local:<input type="datetime-local" name="datetime-local" >
+            </label><br>
+            <label for="">
+                用户名:<input type="text" name="usr_name"/>
+                进度 Meter 标签: <meter  value="81"    min="0" max="100"  low="60"  high="80"/>
+            </label><br>
+            <label for="">
+                dataList:<input type="text" list="demoData" >
+                <datalist id="demoData">
+                    <option>小黄鸭</option>
+                    <option>大黄鸭</option>
+                    <option>大鸭子</option>
+
+                </datalist>
+            </label><br>
+            <label for="">
+                submit:<input type="submit">
+            </label>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
