@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Demo</title>
+</head>
+<body>
+   <audio  id="audioPlayer" src="../../../audio/por_una_cabeza.mp3" controls loop="-1"> 一首歌</audio>
+   <button id="playButton">播放</button>
+   <button id="stop">暂停</button>
+  <script>
+    // const audioElement = document.getElementById('audioPlayer');
+    // const playButton = document.getElementById('playButton');
+    // const stopButton = document.getElementById('stop');
+
+    // playButton.addEventListener('click', function() {
+    //   audioElement.play();
+    // });
+
+    // stopButton.addEventListener('click', function() {
+    //   audioElement.pause();
+    // });
+
+
+    // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // const audioElement = new Audio('../../../audio/por_una_cabeza.mp3');
+    // const source = audioCtx.createMediaElementSource(audioElement);
+    // source.connect(audioCtx.destination);
+
+    // // 在用户点击页面时触发音频播放
+    // document.addEventListener('click', function() {
+    //   audioElement.play();
+    // });
+
+    window.addEventListener('DOMContentLoaded', function() {
+  // 创建 Audio 对象
+  const alarmSound = new Audio('../../../audio/por_una_cabeza.mp3');
+
+  // 播放警报声音
+  alarmSound.play();
+});
+ 
+
+  </script>
+</body>
+</html>
