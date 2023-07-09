@@ -6,9 +6,24 @@
     <title>Audio Demo</title>
 </head>
 <body>
-   <audio  id="audioPlayer" src="../../../audio/por_una_cabeza.mp3" controls loop="-1"> 一首歌</audio>
-   <button id="playButton">播放</button>
-   <button id="stop">暂停</button>
+    <form action="">
+        <fieldset>
+            <legend>音频播放</legend>
+            <audio  id="audioPlayer" src="../../../audio/por_una_cabeza.mp3" controls loop="-1"> 一首歌</audio>
+            <button id="playButton">播放</button>
+            <button id="stop">暂停</button>
+        </fieldset>
+        <fieldset>
+            <legend>视频播放</legend>
+            <video src="../../../audio/por_una_cabeza.mp3" controls autoplay></video>
+            <button id="playVideoButton">播放视频</button>
+            <button id="stopVideo">暂停视频</button>
+        </fieldset>
+    </form>
+
+
+
+
   <script>
     // const audioElement = document.getElementById('audioPlayer');
     // const playButton = document.getElementById('playButton');
@@ -33,13 +48,13 @@
     //   audioElement.play();
     // });
 
-    window.addEventListener('DOMContentLoaded', function() {
-  // 创建 Audio 对象
-  const alarmSound = new Audio('../../../audio/por_una_cabeza.mp3');
+//     window.addEventListener('DOMContentLoaded', function() {
+//   // 创建 Audio 对象
+//   const alarmSound = new Audio('../../../audio/por_una_cabeza.mp3');
 
-  // 播放警报声音
-  alarmSound.play();
-});
+//   // 播放警报声音
+//   alarmSound.play();
+// });
  
 
   </script>

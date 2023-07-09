@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Demo</title>
+</head>
+<body>
+    <p>请打开浏览器 Console 查看</p>
+
+<div class="divdemo" title="div块" data-cy-name="yuchen" data-content="自定义属性值" id="">div</div>
+
+<div class="divdemo" title="div块" data-cy-name="yuchen" data-content="自定义属性值2" id="">div</div>
+
+<script>
+    <!--- . 获取匹配到的 第一个元素 -->
+    var box=document.querySelector(".divdemo");
+    console.log(box.dataset["content"]);
+    console.log(box.dataset["cyName"]);
+
+     box.index=100;
+     box.dataset["content"] ="aaaa";
+     
+     console.log(box.dataset["content"]);
+</script>
+    
+</body>
+</html>

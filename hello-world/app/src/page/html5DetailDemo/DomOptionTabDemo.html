@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tab 地址切换 </title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .tab{
+            width: 400px;
+            margin: 30px auto;
+            background-color: #FFF;
+            border: 1px solid #C0DCC0;
+            box-sizing: border-box;
+
+        }
+        .tab nav{
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            overflow: hidden;
+            background-color: #C0DCC0;
+            display: flex;
+        }
+        nav a{
+            display: block;
+            width: 100px;
+            border-right: 1px solid #C0DCC0;
+            color: #000;
+            text-decoration: none;
+        }
+        nav a:last-child{
+            border-right: 0 none;
+        }
+   
+        nav a.active{
+            background-color: #9baf9b;
+        }
+        .content{
+            overflow: hidden;
+            display: none;
+        }
+        .content ol{
+            line-height: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="tab">
+        <nav>
+            <a href="javascript:;" data-content="world" >World</a>
+            <a href="javascript:;" data-content="business">Business</a>
+            <a href="javascript:;" data-content="markets">Markets</a>
+            <a href="javascript:;" data-content="sports">Sports</a>
+            <a href="javascript:;" data-content="entertainment">Entertainment</a>
+        </nav>
+        <section class="content" id="world">
+            <ol type="i">
+                <li>India</li>
+                <li>Europe</li>
+                <li>China</li>
+                <li>USA</li>
+            </ol>            
+        </section>
+        <section class="content" id="business">
+            <ol type="i">
+                <li>Take Five</li>
+                <li>Stocks</li>
+                <li>Energy</li>
+                <li>Environment</li>
+            </ol>            
+        </section>
+        <section class="content" id="markets">
+            <ol type="i">
+                <li>European Markets</li>
+                <li>Wealth</li>
+                <li>Funds</li>
+                <li>Marco Matters</li>
+            </ol>            
+        </section>
+        <section class="content" id="sports">
+            <ol type="i">
+                <li>GOLF</li>
+                <li>BasketBall</li>
+                <li>NHL</li>
+                <li>Tennis</li>
+            </ol>            
+        </section>
+        <section class="content" id="entertainment">
+            <ol type="i">
+                <li>Music</li>
+                <li>Dance</li>
+                <li>Stars</li>
+                <li>Info</li>
+            </ol>            
+        </section>
+    </div>
+
+    <script>
+        //目标：默认显示一个，当前的样式
+        //点击导航：实现切换
+        //key：表示的当前显示的是第几个
+        (function(key){
+            var navs=document.querySelectorAll('nav a');
+            //如果是用户指定的当前样式
+            for(var i=0;i<navs.length;i++){
+
+              if(key==i){
+                //增加样式属性
+                navs[i].classList.add('active');
+                var secId=navs[i].dataset['content'];
+                console.log(secId);
+                //根据 content 值 设置 item 展示隐藏
+                document.querySelector('#'+secId).style.display='block';
+              }
+
+                //给每个导航绑定点击事件
+                navs[i].onclick=function(){
+                    //排他
+                    var currentNav=document.querySelector('.active');
+                    var currentId=currentNav.dataset['content'];
+                    currentNav.classList.remove('active');
+                    document.querySelector('#'+currentId).style.display='none';
+
+                    //设置当前前几的样式
+                    this.classList.add('active');
+                    var myId=this.dataset['content'];
+                    document.querySelector('#'+myId).style.display='block';
+                    
+                }
+        }   
+    })(0);
+
+    </script>
+    
+</body>
+</html>

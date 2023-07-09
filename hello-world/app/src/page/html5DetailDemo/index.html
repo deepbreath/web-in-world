@@ -142,8 +142,26 @@
         controls:控制条
         loop: 循环播放
         preload: 预加载，同时设置 autoplay 时候，此属性将会失效
+        注意页面自动播放存在安全策略现实，目前测试下来只能用户产生交互才可以进行自动播放
     </pre>
     <a href="AudioDemo.html">来一首音乐吧</a>
 
+    <h3 style="text-align: center; color: tomato;">---- H5 中的 DOM 操作 ----</h3>
+    <pre>
+        获取元素相关操作：
+        document.querySelector("selector"); 通过 CSS 选择器获取符合条件的第一个元素
+        document.queryStelectorAll("selector"); 通过 CSS 选择器获取符合条件的所有元素，
+        以数组形式存在
+
+        针类名操作
+        Node.classList("class") 添加 class
+        Node.classList("class") 移除 class
+        Node.classList.toggle("class") 切换 class，有则移除，无则添加
+        Node.classList.contains("class") 是否包含当前 class
+
+        自定义属性
+        js 中可以使用 class名称 . 属性 类似 classDemo.name 来获取自定义属性
+    </pre>
+    <a href="DOMoptionDemo.html">DOM 操作</a>
 </body>
 </html>
