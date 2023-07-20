@@ -4,8 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--引用相关 CSS 信息-->
+    <link rel="stylesheet" href="../../../css/font-awesome.min.css"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .player{
+            width: 720px;
+            height: 360px;
+            margin:10px auto;
+            border: 1px solid #000;
+            background: url(../../../assets/loading.gif) center no-repeat #000;
+            background-size: auto 100%;
+            position: relative;
+            border-radius: 10px;
+        }
+        .player video{
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .controls{
+            width: 700px;
+            height:40px;
+            background-color: rgba(255, 255, 0, 0.3);
+            position: absolute;
+            bottom:10px;
+            left:10px;
+            border-radius: 10px;
+        }
+        /*开关*/
+        .switch{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left:10px;
+            top:10px;
+
+            text-align: center;
+            line-height: 20px;
+            color:yellow;
+
+        }
+        /*进度条*/
+        .progress{
+            width: 432px;
+            height: 10px;
+            position: absolute;
+            background-color: rgba(255,255,255,0.4);
+            left:40px;
+            top:15px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        /* 当前进度*/
+        .curr-progress{
+            width: 0%;
+            height: 10px;
+            background-color: #fff;
+        }
+        /* 时间模块*/
+        .time{
+            width: 120px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            color:#fff;
+            position: absolute;
+            left:510px;
+            top:10px;
+            font-size:12px;
+
+        }
+        /*全屏*/
+        .extend{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+
+            right:20px;
+            top:10px;
+
+            text-align: center;
+            line-height: 20px;
+            color:yellow;
+        }
+    </style>
 </head>
 <body>
+    <h3 style="text-align: center;color: tomato;">figure: </h3>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">figure 标签</a>
+    <div class="test">
+        <figure>
+            <img src="../../../assets/background.jpeg" style="width: 400px;height: 400px;">
+            <figcaption>This is a Background Picture</figcaption>
+        </figure>
+    </div>
+
+    <div class="video">
+        <figure class="playerfigure">
+
+            <figcaption>视频播放</figcaption>
+
+            <div class="player">
+                <!--视频源-->
+                <video src="../../../viedo/trailer.mp4"></video>
+                    <!--视频进度控制器-->
+                    <div class="controls">
+                        <a href="#" class="switch icon-play"></a>
+                        <div class="progress">
+                            <div class="curr-progress"></div>
+                        </div>
+                    <div class="time">
+                        <span class="crre-time">00:00:00</span>/<span class="total-time">00:00:00</span>
+                    </div>
+                    <a href="#" class="extend icon-resize-full"></a>
+                </div>
+            </div>
+        </figure>
+
+    </div>
+
+<script>
+    // 1.点击 按钮 实现播放暂停并且切换图标
+    // 2.输出视频总的时长
+    // 3.当视频播放的时候，进度条同步，当前时间同步
+    // 4.点击全屏幕实现
+    var video=document.querySelector("video");
+    var playControl=document.querySelector(".switch");
+    //获取进度条
+    var process=document.querySelector(".curr-progress");
+    //获取 当前时间
+    var crrTime=document.querySelector(".crre-time");
+
+    //获取 全部时间
+    var totalTime=document.querySelector(".total-time");
+
+    //全屏幕
+    var extend=document.querySelector(".extend");
     
+    //点击按钮控制开启关闭Video
+
+    //播放开关控制
+    playControl.onclick=function(){
+        //判断当前视频播放状态
+        if(video.paused){
+            video.play();
+            //switch play icon
+            this.classList.remove('icon-play');
+            this.classList.add('icon-pause');
+        }else{
+            video.pause();
+            this.classList.remove('icon-pause');
+            this.classList.add('icon-play');
+        }
+    }
+
+    //进度条根据时间计算，更新 他的长度信息
+    video.oncanplay=function(){
+        videoDuration = Math.round(video.duration);
+        var result=new Date(videoDuration*1000).toISOString().substr(11,8);
+        var h=result.substr(0,2);
+        var m=result.substr(3,2);
+        var s=result.substr(6,2);
+        console.log(h+":"+m+":"+s);
+        totalTime.innerHTML=h+":"+m+":"+s;
+    }
+    
+    //当视频播放的时候，进度条同步，当前时间
+    video.ontimeupdate=function(){
+        var ctTime=Math.round(video.currentTime);
+        var result=new Date(ctTime*1000).toISOString().substr(11,8);
+        var h=result.substr(0,2);
+        var m=result.substr(3,2);
+        var s=result.substr(6,2);
+        crrTime.innerHTML=h+":"+m+":"+s;
+        //为什么商品的 参数可以作用在下面这个函数中？
+        var processTab=ctTime/videoDuration;
+        var pt=processTab*100;
+        process.style.width=pt+"%";
+    }
+
+    extend.onclick=function(){
+        video.webkitRequestFullScreen();
+    }
+
+    </script>    
 </body>
 </html>
