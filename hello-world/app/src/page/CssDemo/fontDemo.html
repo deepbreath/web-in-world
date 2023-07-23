@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .font-precent{
+            font-size: 300%;
+        }
+        .paragraph{
+            /*注意：行高 字号，一般都是偶数，这样子可以进行整除*/
+            font-size: 20px; /*字体的大小*/ 
+            line-height: 30px; /*行高*/
+            font-family: 幼圆,黑体;/*字体类型，如果没有则会展示默认字体*/
+            font-style: italic;/*italic 表示斜体，normal表示不倾斜*/
+            font-weight: bold;/*粗体*/
+            font-variant: small-caps;/*小写变大写*/
+        }
+        .divp{
+            padding: 60px;
+        }
+        .table1 tr td{
+         border: 1px solid black;
+         border-collapse: collapse;
+        }
+        .table2 tr td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            vertical-align: middle;
+        }
+        .textjustify{
+            text-align: justify;
+        }
+
+        ol{
+            list-style-image:linear-gradient(to left bottom, red, blue);
+        }
+
+        /*内联元素又名行内元素(inline element)，和其对应的是块元素(block element)，
+        都是html规范中的概念。内联元素的显示，为了帮助理解，可以形象的称为“文本模式”，
+        即一个挨着一个，都在同一行按从左至右的顺序显示，不单独占一行。*/
+
+        .overDiv{
+            height: 100px;
+            width: 100px;
+            background-color: #00cc66;
+            margin-right: 100px;
+            float: left; /*设置元素在容器中的位置，allowing text and inline elements to wrap around it */
+        }
+        #div1{
+            overflow: auto;/*超出部分浏览器自行解决*/
+        }
+        #div2{
+            overflow: visible;/*超出部分会显示出来*/
+        }
+        #div3{
+            overflow: hidden;/*超出的部分将建切掉*/
+        }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center;color: tomato;">CSS 单位</h3>
+    <div>
+        <pre class="content">
+            //这些都是绝对单位
+            CSS 中的单位是必须写，没有默认单位
+            1 in=2.54 cm=25.4 mm=72pt=6pc
+            in:英寸 1 英寸= 2.54 厘米
+            cm:厘米
+            mm:毫米
+            pt: 点 Point 1点=1/72英寸
+            pc: 皮卡 1皮卡=12 点
+        </pre>
+        <pre class="content">
+            相对单位
+            px:像素 
+            em:印刷相当于 12 个点（pt）
+            % : 百分比，相对周围的文字的大小
+            px为什么是一个相对单位
+            因为显示器的尺寸是不变的，但是现实可以展示不同的分辨率，
+            不通分辨率下，单个像素长度是不一样的
+        </pre>
+        <div>用来展示不同lable字体周围使用% <label class="font-precent">需要使用百分比的字大小</label>这个也是周围的字体信息</div>
+    </div>
+    <h3 style="text-align: center;color: tomato;">font 字体属性</h3>
+    <div class="divp">
+        <p class="paragraph">
+            是否可以继续坚持下去，CSS 的太多属性看的头疼
+            但是如不不了解清楚怎么办，但是借助 AI 去生成相关样式
+            这样子会让自己变得不会勤于思考，但是相对的 AI 生成
+            相关相识是否也会也会协助自己可以进行深度思考，不可只CV要
+            需要判断与确认
+        </p>
+    </div>
+    <h3 style="text-align: center;color: tomato;">TIPS: 如何让单行文本垂直居中？</h3>
+    <pre>
+        Tips: 如果一段文本中只有一行，如果此时设置行高（line-height）= 盒子的高度，就可以保证
+        单行文本垂直居中。
+        那如果是需要多行呢？
+        需要计算盒子的padding。
+        计算公式:盒子高度-（行数*行高）
+    </pre>
+    <h3 style="text-align: center;color: tomato;">Vertical-calign:middle 属性</h3>
+    <pre>
+        vertical-align 属性可用于指定行内元素（inline），行内块元素(inline-block)
+        表格的单元格（table-cell）的垂直对齐方式。主要用于图片，表格文本的对齐
+    </pre>
+    <h3 style="text-align: center;color: tomato;">文本属性</h3>
+    <pre>
+        letter-spacing:0.5 cm; 单个字符之间的间距
+        word-spacing:1 cm; 单词之间的间距
+        text-decoration: none; 字体修饰；none 去掉下划线，underline 下划线
+        line-through:中划线，overline 上划线
+        color：red 字体颜色
+        text-align: cneter;在当前容器中的对齐方式。
+            属性值：left right center justify
+            对于text-aling:justify我总结了以下几条：
+            1.可以让文本两端对齐；
+            2.文本的最后一行或者单独一行设置是无效的；
+            3.对元素没有效果只对元素内文本有效果；
+    </pre>
+    <h3 style="text-align: center;color: tomato;">列表属性</h3>
+    <fieldset>
+        <legend>列表属性</legend>
+        <ol>
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+            <li>列表4</li>
+            <li>列表5</li>
+        </ol>
+    </fieldset>
+    <h3 style="text-align: center;color: tomato;">overflow 属性:超出范围的内容如何处理</h3>
+    <pre>
+        overflow:属性
+        visible: 多余的内容，不剪切不滚动，内容会全部展示出
+        hidden:不显示超过对象尺寸的内容
+        auto: 如果内容不超出，则不显示滚动条，如果内容超出，则显示滚动条
+        scroll: Windows 平台下，内容是否超出都会现实滚动条。Mac 平台下和 auto 相同
+    </pre>
+    <div>
+        <fieldset>
+        <legend>divTest</legend>
+        <div class="overDiv" id="div1">没有什么比CSS更加繁琐的了，如果有可以替换掉东西就好了，感觉CSS的属性参数跟太多太多了用处不大</div>
+        <div class="overDiv" id="div2">没有什么比CSS更加繁琐的了，如果有可以替换掉东西就好了，感觉CSS的属性参数跟太多太多了用处不大</div>
+        <div class="overDiv" id="div3">没有什么比CSS更加繁琐的了，如果有可以替换掉东西就好了，感觉CSS的属性参数跟太多太多了用处不大</div>
+        </fieldset>
+    </div>
+    <h3 style="text-align: center;color: tomato;">cursor 属性:鼠标属性</h3>
+    <pre>
+        auto:默认值。浏览器根据当前的情况自动确定鼠标光标的类型
+        pointer: IE6.0 竖起一只手指的手型光标，像通常用户将光标移动大超链接的样式
+        hand:与 pointer 一致
+        all-scroll: 移动光标
+        col-resize:
+        crosshair:
+        default:客户端默认光标
+        hand:小手光标
+        move:
+        help:
+        no-drop:
+        not-allowed:
+        progress:
+        row-resize:
+        text:
+        vertical-text:
+        wait:
+        *-resize: 用于表示对象可以被改变尺寸方向的箭头光标
+            w-resize/s-resize/n-resize/e-resize/e-resize/ne-resize/sw-resize/nw-resizes
+        URL: 
+    </pre>
+    <fieldset>
+        <legend>鼠标光标</legend>
+        <button style="cursor: auto;">Auto</button>
+        <button style="cursor:move;">Move</button>
+        <button style="cursor:pointer;">Pointer</button>
+        <button style="cursor:w-resize;">w-resize</button>
+        <button style="cursor:s-resize;">s-resize</button>
+        <button style="cursor:n-resize;">n-resize</button>
+        <button style="cursor:n-resize;">e-resize</button>
+        <button style="cursor:wait;">wait</button>
+    </fieldset>
+    <h3 style="text-align: center;color: tomato;">图片滤镜</h3>
+    <fieldset>
+        <legend>图片滤镜</legend>
+        <div class="imgContainer">
+            <table>
+                <tr>
+                    <td>原始图片</td>
+                    <td>滤镜图片</td>
+                </tr>
+                <tr>
+                    <td><img src="./../../../assets/theme.jpg" style="width: 400px;height: 400px;"/></td>
+                    <td><img src="../../../assets/theme.jpg" style="width:400px;height:400px;filter:grayscale();"/></td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+</body>
+</html>
