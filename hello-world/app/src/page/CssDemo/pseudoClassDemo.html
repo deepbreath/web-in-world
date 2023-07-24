@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    a:link{
+        color: red; /*让超链接点击之前是红色*/
+    }
+    a:visited{
+        color: orange;/*访问过后是橘色*/
+    }
+    a:hover{
+        color: green;/*悬停后是绿色*/
+    }
+    a:active{
+        color:black;/*点击链接不松开鼠标，是黑色*/
+    }
+    .nav{
+			width: 960px;
+			height: 50px;
+			border: 1px solid red;
+			margin: 100px auto;
+		}
+		.nav ol{
+			/*去掉小圆点*/
+			list-style: none;
+            
+		}
+		.nav ol li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			/*让内容水平居中*/
+			text-align: center;
+			/*让行高等于nav的高度，就可以保证内容垂直居中*/
+			line-height: 50px;
+		}
+		.nav ol li a{
+			display: block;
+			width: 120px;
+			height: 50px;
+		}
+		/*两个伪类的属性，可以用逗号隔开*/
+		.nav ol li a:link , .nav ol li a:visited{
+			text-decoration: none;
+			background-color: purple;
+			color:white;
+		}
+		.nav ol li a:hover{
+			background-color: orange;
+		}
+        input:focus{
+            border: 3px solid red;
+            color:white;
+            background-color: gray;
+        }
+        label:active{
+            color: red;
+        }
+        table{
+            width: 300px;
+            height: 200px;
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+        table tr:hover{
+            background: gray;
+        }
+        table td{
+            border: 1px solid red;
+        }
+
+ </style>
+
+</head>
+<body>
+    <h3 style="text-align: center;color: tomato;">伪类</h3>
+    <fieldset>
+        <legend>CSS伪类</legend>
+        <pre class="p">
+            :link "链接"，超链接点击之前
+            :visited "f访问过的" 链接被访问过之后
+            :hover "悬停"：鼠标放到标签的时候
+            :active "激活": 鼠标点击标签不松手的时候
+            四种状态，必须按照固定顺序书写
+            a:link a:visited a:hover a:active
+        </pre>
+        <div>
+            <a href="wwww.baidu.com">CSS伪类</a>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>导航</legend>
+        <div class="nav">
+            <ol class="list">
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+                <li class="item"><a href="#">网站栏目</a></li>
+            </ol>
+        </div>
+    </fieldset>
+    <h3 style="text-align: center;color: tomato;">动态伪类</h3>
+    <fieldset>
+        <legend>动态伪类</legend>
+        <div>
+            用户名:<input type="text"/><br>
+            <label>测试</label><br>
+            密码:<input type="password"><br>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>表格</legend>
+        <div>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+
+</body>
+</html>
