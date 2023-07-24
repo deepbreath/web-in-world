@@ -4,9 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .inherited{
+            color: red;
+            border: 1px solid red;
+        }
+        #box1 .select2 p{
+            color: red;
+        }
+        #box2 div .pp{
+            color: blue;
+        }
+        span{
+            color: green;
+        }
+        .nav{
+            color: red;
+        }
+        .nav ul li{
+            color: blue;
+        }
+
+    </style>
 </head>
 <body>
     <h3 style="text-align: center; color: tomato;">CSS 的继承性</h3>
+    <fieldset>
+        <legend>CSS 继承性</legend>
+        <div class="inherited">
+            <p>P1测试相关继承性</p>
+            <p>P1测试相关继承性</p>
+            <p>P1测试相关继承性</p>
+        </div>
+        <pre>
+            一些属性，当给自己设置的时候，他的后代也会继承上，也就是继承性
+            但是 文本标签只会继承 color 针对文字内容的样式
+            无法继承 盒子， 定位，布局的属性
+        </pre>
+    </fieldset>
+    <h3 style="text-align: center; color: tomato;">CSS层叠性</h3>
+    <pre>
+        ID 选择器 》 类选择器 》 标签选择器
+        存在相同权重，按照顺序覆盖
+    </pre>
+        <fieldset>
+            <legend>选择器权重相同，按照顺序覆盖</legend>
+            <div class="select1" id="box1">
+                <div class="select2" id="box2">
+                    <div class="select3" id="box3">
+                        <p class="pp">什么颜色？</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>层叠性，权重计算问题</legend>
+            <pre>
+                是否被选中 -> 选中 -> 比较权重 ->
+                                    权重不同 -> 展示权重大的
+                                    权重相同 -> 展示最后一个顺序的样式
+                没有选中 -> 就近原则谁描述的近用谁的 -—> 位置一样 -> 权重比较 
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>CSS 样式的冲突的总结</legend>
+            <pre>
+                1. 对于相同的选择器。 样式表排序-> 行级别样式 -> 内嵌样式 —>外部样式表
+                2. 对于相同类型的样式表 id 大于 类选择 大于 标签选择
+                3. 外部样式表 的ID 选择器 > 内嵌样式表的标签选择器
+                继承的权重为 0
+                总结：就近原则。ID 选择器最大
+            </pre>
+            <div class="nav">
+                <ul>
+                    <li><span>文字1</span></li>
+                    <li><span>文字1</span></li>
+                    <li><span>文字1</span></li>
+                    <li><span>文字1</span></li>
+                    <li><span>文字1</span></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>!important 标记: 优先级最高</legend>
+            <pre>
+                !important 不影响就近原则
+                尽量不要使用 !important
+            </pre>
+        </fieldset>
     
 </body>
 </html>
