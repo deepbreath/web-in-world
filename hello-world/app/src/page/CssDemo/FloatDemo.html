@@ -3,9 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title> 
+    <style>
+        .green{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+        .blue{
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        .green1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+        .blue1{
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+    </style>
 </head>
 <body>
-    
+    <h3 style="text-align: center; color: tomato;">行内元素和块级元素</h3>
+    <pre>
+        行内元素和块级元素区别:
+        行内元素: 
+            与其他行内元素并排
+            不能设置宽，高。默认的宽度，就是文字的宽度
+        块级元素:
+            霸占一行，不能与其他任何元素并列
+            能接受宽，高。如果不设置宽高，那么宽度默认为父亲的100%
+        行内元素和块级元素的分类:
+        文本级别：p span a b i u em
+        容器级别：div h系列 li dt dd
+    PS: p标签只能存放文字&图片&表单元素,p 里面不能放 h 和 ul，p 里面也不能放p 
+
+    行内元素: 出了 p 之外，所有的文本级标签，都是内行元素。p 是文本级，但是是一个块元素
+    块级元素: 所有的容器标签都是块元素，还有 p 标签
+    </pre>
+    <h3 style="text-align: center; color: tomato;">行内元素和块元素的想换转换</h3>
+    <pre>
+        我们可以通过 display 属性将块级元素 和 行内元素进行相互转换。display 即 “显示模式”
+        使用 display:inline 将块级转换为行级元素
+        使用 display:block 将行级别转换为块级别
+        CSS 中一共三种手段，使一个元素脱离标准文档流
+        （1） 浮动
+        （2） 绝对定位
+        （3） 固定定位
+    </pre> 
+    <h3 style="text-align: center; color: tomato;">浮动的性质</h3>
+    <fieldset>
+        <legend>未使用浮动设置</legend>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </fieldset>
+
+    <fieldset>
+        <legend>使用浮动设置</legend>
+        <div class="green1"></div>
+        <div class="blue1"></div>
+    </fieldset>
 </body>
 </html>
