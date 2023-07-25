@@ -54,6 +54,45 @@
             float: left;
             background-color: yellowgreen;
         }
+        
+       li{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .box2{
+            margin-top: 10px;
+            clear: both;
+        }
+        .cl{
+            clear: both;
+        }
+        .h16{
+            height: 16px;
+        }
+        .box5{
+            background-color: green;
+        }
+        .box5 p{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box6{
+            background-color: green;
+        }
+        .box6 p{
+            float: right;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box7{
+            overflow: hidden;
+            background-color: yellowgreen;
+        }
     </style>
 </head>
 <body>
@@ -127,6 +166,133 @@ There are significant challenges inherent in this model as well.
     <a href="FloatDemoHomeWork.html">Demo</a>
 
     <h3 style="text-align: center; color: tomato;">浮动清除</h3>
+    <pre>
+        这里所说的清除浮动，指代清除浮动与浮动之间的影响
+        浮动又开始，就有清除
+    </pre>
+    <fieldset>
+        <legend>浮动的影响 Demo，两个无需列表应该是分开的，结果第二个紧紧跟着第一个</legend>
+        <pre>
+            方法1:
+            问题原因: li 标签的父亲 div 没有设置高度，导致两个 div 的高度都是 0px
+            解决方式: div 设置合适的高度，保证高度大于 儿子的高度
+            总结:有高度的盒子，才能关住浮动
+            如果一个元素要浮动，那么他的祖先元素一定要有高度
+
+        </pre>
+        <div class="list1">
+            <ul>
+                <li>列表1</li>
+                <li>列表1</li>
+                <li>列表1</li>
+                <li>列表1</li>
+            </ul>
+        </div>
+        <div class="list2">
+            <ul>
+                <li>列表2</li>
+                <li>列表2</li>
+                <li>列表2</li>
+                <li>列表2</li>
+            </ul>
+        </div>
+    </fieldset>
+    <pre>
+        方法2:clear:both;
+        clear 清除，both指左浮动，右浮动都要清除。 clear:both 的意思就是
+        不允许左侧和右侧有浮动对象
+        问题:如果使用 它所在的标签 margin 属性会失效
+    </pre>
+    <fieldset>
+        <legend>使用clear:both 清理浮动</legend>
+        <div class="box1">
+            <ul>
+                <li>元素1</li>
+                <li>元素1</li>
+                <li>元素1</li>
+                <li>元素1</li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul>
+                <li>元素2</li>
+                <li>元素2</li>
+                <li>元素2</li>
+                <li>元素2</li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <h3 style="text-align: center;color:tomato;">方法3:隔墙法</h3>
+    <fieldset>
+        <legend>隔墙法</legend>
+        <div class="box3">
+            <ul>
+                <li>元素4</li>
+                <li>元素4</li>
+                <li>元素4</li>
+                <li>元素4</li>
+            </ul>
+        </div>
+        <div class="cl h16"></div>
+        <div class="box4">
+            <ul>
+                <li>元素5</li>
+                <li>元素5</li>
+                <li>元素5</li>
+                <li>元素5</li>
+                <li>元素5</li>
+            </ul>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>内墙法</legend>
+        <p>两个 p 都是浮动，所以父亲 div 不能被撑出高。</p>
+        <p>如果家里修建一堵墙，就能让 div 被 儿子撑出高度</p>
+        <p>此时: div 可以自适应内容</p>
+        <p>注意:一个父亲不能被浮动的的儿子撑出高度的</p>
+        <p>与外墙相比，内墙方法的优势在于，内墙可以给所在容器撑出高度，box6 的高度可以自适应</p>
+        <div class="box5">
+            <p></p>
+        </div>
+
+        <div class="box6">
+            <p></p>
+            <div class="cl"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>overflow:hidden 生成BFC</legend>
+        <div class="box7">
+            <ul>
+                <li>元素7</li>
+                <li>元素7</li>
+                <li>元素7</li>
+                <li>元素7</li>
+            </ul>
+        </div>
+        <div class="box8">
+            <ul>
+                <li>元素8</li>
+                <li>元素8</li>
+                <li>元素8</li>
+                <li>元素8</li>
+            </ul>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>浮动清除总结</legend>
+        <pre>
+            浮动元素，只能被有高度的盒子关注，如果盒子内有浮动，且盒子有高则不会影响
+            1. 加高方法，不建议使用麻烦，且无法适应页面的快速变化
+            2.clear:both 最简单的清除浮动方法，但是会使 margin 外边距失效
+            3.隔墙方法：两个浮动元素之间创建一个墙或者块，隔开两边浮动，然后面的浮动，不去追前面的
+            浮动元素。墙用自己的身体当作间隙，缺点：无法将第一个 div 撑出高度
+            4.内墙方法：允许后部分p，不去追前部分的p，并且可以吧第一个div 撑出高度
+            5.overflow:hidden:推荐使用，一种偏方？并且可以让 margin 生效
+        </pre>
+    </fieldset>
+
 
 </body>
 </html>
