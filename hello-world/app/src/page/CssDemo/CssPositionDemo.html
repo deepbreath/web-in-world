@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 定位属性</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .box1{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .box2{
+            position: relative;/*相对定位,相对于自己原来的位置*/
+            left: 50px;/*横坐标：正值向右偏移，负值向左偏移*/
+            top:50px;/*纵坐标，正值表示向下偏移，负值表示向上偏移*/
+
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .box3{
+            height: 60px;
+            position: relative;  
+        }
+        .mid{
+            width: 600px;
+            height: 60px;
+            position: absolute;
+            left: 50%;
+            top:0;
+            background-color: blue;
+            margin-left: -300px; /*向左移动宽度 600px 的一半*/
+        }
+        .backtop{
+            position: fixed;
+            bottom: 200px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: gray;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            text-decoration: none; /*去掉超链接下划线*/
+        }
+
+    </style>
+</head>
+<body>
+<h3 style="text-align: center; color: tomato;">CSS定位属性</h3>
+    <p>position: absolute; 绝对行为</p>
+    <p>position: relative; 相对定位</p>
+    <p>position: fixed; 固定定位</p>    
+
+    <h3 style="text-align: center; color: tomato;">相对定位</h3>
+    <pre>
+        相对定位：让元素对于自己的原来的位置，进行调整 
+        相对路径不脱标
+        相对行为：不脱标，老家留坑，别人不会把他的位置挤走
+        相对路径的用途:微调元素，做绝对定位的参考，子绝父相
+    </pre>
+    <fieldset>
+        <legend>相对定位</legend>
+        <div class="box1">相对</div>
+        <div class="box2">定位</div>
+    </fieldset>
+
+    <h3 style="text-align: center; color: tomato;">绝对定位</h3>
+    <pre>
+        绝对定位:定义横纵坐标。原点在父容器的左上角或左下角。
+        横坐标用 left 表示，纵坐标用 top 或者 bottom 表示，纵坐标用
+        绝对定位：会脱离标准文档流
+        绝对定位后，标签不会区分所谓的行内元素，块元素，不需要 display:block 就可以设置宽，高了
+        Example:
+            position: absolute; 绝对定位
+            left:10px 横坐标
+            top/bottom:20px 纵坐标
+        参考定位 top 描述: 如果 top 描述，参考点为 “页面的” 左上角， 不是浏览器的左上角
+        bottom 描述: 参考点 “浏览器首屏窗口尺寸”（首屏）理解？，对应页面的左下角
+
+        首屏：包含整个页面的 距离，而不仅仅是浏览器上的
+       1. 要听最近的已经定位的祖先元素，不一定的父亲，可能是爷爷
+        div class=box1  //相对定位
+            div class=box2 //没有定位
+                p class=son  //绝对定位， p 将以 box1 为参考， 因为 box2 没有定位
+
+       2. div class=box1 //相对定位
+              div class=box2 //相对定位
+                   p class=son //绝对定位  p 将 以 box2 为参考，box2 是距离最近的
+
+       3. 不一定相对定位，任何定位都可以作为儿子的参考
+
+       子绝父相:可以保证附近不脱离标准流，儿子脱离标准流还是在附近的范围内移动
+       Tips: 父亲浮动，设置相对定位(零偏移)，然后儿子绝对定位一定的的距离
+
+       工程应用: 适合处理 压盖 效果
+    </pre>
+    <a href="CssPositionHomeWorkDemo.html">Example</a>
+
+    <h3 style="text-align: center; color: tomato;">让绝对定位中的盒子在父亲里居中</h3>
+    <pre>
+        居中公式: left:50%; margin-left 负宽度的一半
+
+    </pre>
+    <fieldset>
+        <legend>盒子居中</legend>
+        <div class="box3">
+            <div class="mid"></div>
+        </div>
+     
+    </fieldset>
+    <h3 style="text-align: center; color: tomato;">固定定位:返回顶部</h3>
+    <div class="backtop"></div>
+
+    <h3 style="text-align: center; color: tomato;">固定定位:顶部导航</h3>
+    
+    <fieldset>
+        <legend>顶部导航</legend>
+        
+    </fieldset>
+
+</body>
+</html>

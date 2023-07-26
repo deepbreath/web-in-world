@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin 塌陷和 Margin 重叠</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            background-color: green;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            margin-top: 50px;
+            background-color: skyblue;
+        }
+        .boxtop{
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+        .boxtop p{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            margin-top: 10px;
+        }
+        .boxtrue{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            background-color: orange;
+        }
+        .boxtrue p{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center;color: tomato;">Margin 塌陷</h3>
+    <fieldset>
+        <pre>
+            注意：盒子都是浮动的，那么两个盒子之间是没有塌陷现象的
+        </pre>
+        <legend>塌陷测试</legend>
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </fieldset>
+
+    <h3 style="text-align: center;color: tomato;">盒子居中 margin:0 auto</h3>
+    <pre>
+        居中：
+            margin-left:auto
+            margin-right:auto
+        简写：margin：0 auto 
+        注意：只有在标准流盒子中可以使用，当一个盒子浮动后，绝对定位，固定定位，都不能使用
+        使用：居中操作，盒子必须设置 width 
+        margin 是让盒子居中，而不是 盒子中的文本居中   
+    </pre>
+    <h3 style="text-align: center;color: tomato;">善用父亲的padding，而不是儿子的 margin</h3>
+    <fieldset>
+        <legend>异常现象</legend>
+        <p>原因：父亲没有border，儿子的外边距实际 margin-top 上是流，top的是这行，所以父亲也整个掉了下来</p>
+        <div class="boxtop">
+            <p></p>
+        </div>
+
+        <div class="boxtrue">
+            <p>为父div增加border</p>
+        </div>
+    </fieldset>
+</body>
+</html>
